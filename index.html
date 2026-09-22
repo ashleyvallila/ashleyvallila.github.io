@@ -1,537 +1,638 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Ashley Vallila — Marketing student at Fairfield University">
-  <title>Ashley Vallila | Marketing</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+:root {
+  --bg: #f5f5f7;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --blue: #0071e3;
+  --dark: #000;
+  --white: #fff;
+  --line: #d2d2d7;
+}
 
-<body>
+* {
+  box-sizing: border-box;
+}
 
-  <header class="nav" id="top">
-    <a class="logo" href="#top">Ashley Vallila</a>
+html {
+  scroll-behavior: smooth;
+}
 
-    <button class="menu" aria-expanded="false" aria-controls="links">
-      ☰
-      <span class="sr">Menu</span>
-    </button>
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 
-    <nav id="links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#study-abroad">Study Abroad</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+a {
+  color: inherit;
+}
 
 
-  <main>
+/* NAVIGATION */
 
-    <!-- HERO -->
+.nav {
+  height: 48px;
 
-    <section class="hero">
+  position: sticky;
+  top: 0;
+  z-index: 50;
 
-      <div class="hero-copy">
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-        <p class="kicker">
-          MARKETING · FAIRFIELD UNIVERSITY
-        </p>
+  padding: 0 max(22px, calc((100vw - 1100px) / 2));
 
-        <h1>
-          Ideas that<br>
-          <span>connect.</span>
-        </h1>
+  background: rgba(245, 245, 247, 0.86);
 
-        <p class="lede">
-          I’m Ashley Vallila, a marketing student focused on multi-channel
-          campaigns, brand messaging, digital content, audience engagement,
-          and financial services.
-        </p>
+  backdrop-filter:
+    saturate(180%)
+    blur(20px);
 
-        <div class="actions">
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-          <a class="primary" href="#experience">
-            Explore my experience
-          </a>
+.logo {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
 
-          <a
-            class="secondary"
-            href="Ashley-Vallila-Resume.pdf"
-            target="_blank"
-          >
-            View résumé ↗
-          </a>
+.nav nav {
+  display: flex;
+  gap: 30px;
+}
 
-        </div>
+.nav nav a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #333;
+}
 
-      </div>
+.menu {
+  display: none;
 
+  border: 0;
+  background: none;
 
-      <div class="portrait">
+  font-size: 18px;
+}
 
-        <img
-          src="profile.jpg"
-          alt="Ashley Vallila"
-        >
+.sr {
+  position: absolute;
 
-        <p>
-          Moorestown, NJ · Fairfield University
-        </p>
+  width: 1px;
+  height: 1px;
 
-      </div>
+  overflow: hidden;
 
-    </section>
+  clip: rect(0, 0, 0, 0);
+}
 
 
-    <!-- ABOUT -->
+/* HERO */
 
-    <section class="dark" id="about">
+.hero {
+  max-width: 1180px;
+  margin: auto;
 
-      <div class="wrap feature">
+  min-height: calc(100vh - 48px);
 
-        <p class="label">
-          ABOUT
-        </p>
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
 
-        <h2>
-          Marketing strategy,<br>
-          <span>made human.</span>
-        </h2>
+  align-items: center;
 
-        <p class="big-copy">
-          I translate marketing strategy into audience-focused campaigns
-          and measurable results. My experience spans digital and print
-          campaigns, brand messaging, content creation, customer engagement,
-          and financial services strategy.
-        </p>
+  gap: 70px;
 
-      </div>
+  padding: 70px 40px;
+}
 
-    </section>
+.kicker,
+.label {
+  font-size: 12px;
+  font-weight: 700;
 
+  letter-spacing: 0.12em;
+}
 
-    <!-- EXPERIENCE -->
+.hero h1,
+.section h2,
+.feature h2,
+.education h2,
+.contact h2 {
+  margin: 12px 0 24px;
 
-    <section class="wrap section" id="experience">
+  font-size: clamp(58px, 8vw, 112px);
 
-      <p class="label">
-        EXPERIENCE
-      </p>
+  line-height: 0.92;
 
-      <h2>
-        Work with impact.
-      </h2>
+  letter-spacing: -0.065em;
+}
 
+.hero h1 span,
+.feature h2 span {
+  color: #86868b;
+}
 
-      <div class="cards">
+.lede {
+  max-width: 650px;
 
-        <article class="card">
+  font-size: clamp(21px, 2.3vw, 30px);
 
-          <div class="card-top">
+  line-height: 1.25;
 
-            <span>May 2026</span>
+  color: var(--muted);
 
-            <span>Stamford, CT</span>
+  font-weight: 600;
+}
 
-          </div>
 
+/* BUTTONS */
 
-          <h3>
-            Synchrony Financial
-          </h3>
+.actions {
+  display: flex;
+  flex-wrap: wrap;
 
+  gap: 12px;
 
-          <p class="role">
-            Business Leadership Program — Extern,
-            Sales &amp; Marketing Track
-          </p>
+  align-items: center;
 
+  margin-top: 30px;
+}
 
-          <ul>
+.primary,
+.secondary {
+  display: inline-block;
 
-            <li>
-              Selected for Synchrony’s competitive Business Leadership Program.
-            </li>
+  border-radius: 999px;
 
-            <li>
-              Gained exposure to the credit card and payments industry,
-              customer engagement strategies, and overall business model.
-            </li>
+  padding: 12px 20px;
 
-            <li>
-              Collaborated on case studies evaluating customer engagement
-              opportunities and financial services strategy.
-            </li>
+  text-decoration: none;
 
-            <li>
-              Led a team presentation of strategic recommendations
-              to senior leadership.
-            </li>
+  font-size: 15px;
+}
 
-          </ul>
+.primary {
+  background: var(--blue);
 
-        </article>
+  color: #fff;
+}
 
+.secondary {
+  color: var(--blue);
 
-        <article class="card accent">
+  border: 1px solid var(--blue);
+}
 
-          <div class="card-top">
 
-            <span>2025–26</span>
+/* PROFILE PHOTO */
 
-            <span>Fairfield, CT</span>
+.portrait img {
+  width: 100%;
 
-          </div>
+  display: block;
 
+  border-radius: 34px;
 
-          <h3>
-            Fairfield University Theatre Program
-          </h3>
+  aspect-ratio: 4 / 5;
 
+  object-fit: cover;
 
-          <p class="role">
-            Marketing Intern · Regina A. Quick Center for the Arts
-          </p>
+  background: #ddd;
+}
 
+.portrait p {
+  font-size: 12px;
 
-          <ul>
+  color: var(--muted);
 
-            <li>
-              Increased Fall and Spring production attendance by more
-              than 50% per performance, contributing to sold-out shows.
-            </li>
+  text-align: center;
+}
 
-            <li>
-              Developed multi-channel digital and print campaigns
-              to increase awareness and engagement.
-            </li>
 
-            <li>
-              Created brand messaging and promotional themes
-              for a consistent production identity.
-            </li>
+/* GENERAL CONTENT */
 
-            <li>
-              Supported live productions and promotional events
-              to maximize audience engagement and attendance.
-            </li>
+.wrap {
+  max-width: 1100px;
 
-          </ul>
+  margin: auto;
 
-        </article>
+  padding-left: 32px;
+  padding-right: 32px;
+}
 
-      </div>
 
-    </section>
+/* DARK FEATURE SECTIONS */
 
+.dark {
+  background: #000;
 
-    <!-- EDUCATION -->
+  color: #f5f5f7;
+}
 
-    <section class="education" id="education">
+.feature {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
 
-      <div class="wrap">
+.feature .label {
+  color: #86868b;
+}
 
-        <p class="label">
-          EDUCATION
-        </p>
+.feature h2 {
+  font-size: clamp(52px, 7vw, 92px);
+}
 
+.big-copy,
+.activities {
+  max-width: 900px;
 
-        <h2>
-          Fairfield University.
-        </h2>
+  font-size: clamp(25px, 3.5vw, 42px);
 
+  line-height: 1.14;
 
-        <p class="degree">
-          B.S. in Marketing
-          <span>· Minor in Management</span>
-        </p>
+  font-weight: 600;
 
+  color: #a1a1a6;
+}
 
-        <div class="stats">
 
-          <div>
+/* SECTIONS */
 
-            <strong>
-              3.84
-            </strong>
+.section {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
 
-            <span>
-              GPA / 4.0
-            </span>
+.section h2,
+.education h2,
+.contact h2 {
+  font-size: clamp(48px, 6vw, 78px);
+}
 
-          </div>
 
+/* EXPERIENCE CARDS */
 
-          <div>
+.cards {
+  display: grid;
 
-            <strong>
-              2028
-            </strong>
+  grid-template-columns: 1fr 1fr;
 
-            <span>
-              Expected graduation
-            </span>
+  gap: 24px;
+}
 
-          </div>
+.card {
+  background: #fff;
 
+  border-radius: 30px;
 
-          <div>
+  padding: 38px;
 
-            <strong>
-              4
-            </strong>
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.04);
+}
 
-            <span>
-              Dean’s List semesters
-            </span>
+.card.accent {
+  background: #e8f2ff;
+}
 
-          </div>
+.card-top {
+  display: flex;
 
+  justify-content: space-between;
 
-          <div>
+  color: var(--muted);
 
-            <strong>
-              2027
-            </strong>
+  font-size: 13px;
+}
 
-            <span>
-              Florence study abroad
-            </span>
+.card h3 {
+  font-size: 34px;
 
-          </div>
+  letter-spacing: -0.04em;
 
-        </div>
+  margin: 50px 0 8px;
+}
 
+.role {
+  font-weight: 600;
 
-        <p class="course">
+  color: var(--muted);
+}
 
-          <b>
-            Relevant coursework:
-          </b>
+.card ul {
+  padding-left: 20px;
 
-          Business Analytics · Principles of Marketing ·
-          Financial &amp; Managerial Accounting
+  line-height: 1.55;
+}
 
-        </p>
+.card li {
+  margin: 12px 0;
+}
 
-      </div>
 
-    </section>
+/* EDUCATION */
 
+.education {
+  background: #fff;
 
-    <!-- STUDY ABROAD -->
+  padding: 130px 0;
+}
 
-    <section
-      class="travel"
-      id="study-abroad"
-      aria-labelledby="travel-title"
-    >
+.degree {
+  font-size: 28px;
 
-      <div class="travel-image">
+  font-weight: 600;
+}
 
-        <img
-          src="study-abroad-france.webp"
-          alt="Colorful Mediterranean waterfront in France"
-        >
+.degree span {
+  color: var(--muted);
+}
 
-      </div>
+.stats {
+  display: grid;
 
+  grid-template-columns: repeat(4, 1fr);
 
-      <div class="wrap travel-copy">
+  gap: 14px;
 
-        <p class="label">
-          STUDY ABROAD · SPRING 2027
-        </p>
+  margin: 60px 0 35px;
+}
 
+.stats div {
+  background: var(--bg);
 
-        <h2 id="travel-title">
-          A global perspective.
-        </h2>
+  border-radius: 24px;
 
+  padding: 30px 22px;
+}
 
-        <p>
-          Global Fairfield Study Abroad Center · Florence, Italy
-        </p>
+.stats strong {
+  display: block;
 
+  font-size: 46px;
 
-        <p class="travel-note">
-          Expanding my Fairfield University education through
-          an international study experience in Florence.
-        </p>
+  letter-spacing: -0.05em;
+}
 
-      </div>
+.stats span {
+  display: block;
 
-    </section>
+  color: var(--muted);
 
+  margin-top: 8px;
+}
 
-    <!-- SKILLS -->
+.course {
+  font-size: 18px;
 
-    <section class="wrap section" id="skills">
+  color: var(--muted);
+}
 
-      <p class="label">
-        SKILLS
-      </p>
 
+/* STUDY ABROAD */
 
-      <h2>
-        Tools &amp; strengths.
-      </h2>
+.travel {
+  background: #fff;
 
+  padding: 0 0 120px;
+}
 
-      <div class="skill-cards">
+.travel-image {
+  max-width: 1400px;
 
+  margin: 0 auto;
 
-        <article>
+  padding: 24px;
+}
 
-          <h3>
-            Marketing
-          </h3>
+.travel-image img {
+  display: block;
 
-          <p>
-            Campaign Development · Brand Messaging · Market Research ·
-            Content Creation · Audience Engagement · Social Media
-          </p>
+  width: 100%;
 
-        </article>
+  height: min(72vh, 760px);
 
+  object-fit: cover;
 
-        <article>
+  border-radius: 34px;
+}
 
-          <h3>
-            Design &amp; Content
-          </h3>
+.travel-copy {
+  padding-top: 62px;
+}
 
-          <p>
-            Adobe Creative Suite · Canva
-          </p>
+.travel-copy h2 {
+  margin: 12px 0 18px;
 
-        </article>
+  font-size: clamp(52px, 7vw, 92px);
 
+  line-height: 0.95;
 
-        <article>
+  letter-spacing: -0.06em;
+}
 
-          <h3>
-            Business &amp; Technology
-          </h3>
+.travel-copy > p:not(.label) {
+  font-size: clamp(22px, 2.6vw, 34px);
 
-          <p>
-            Microsoft Office · Excel · PowerPoint ·
-            Google Workspace · Slack
-          </p>
+  font-weight: 600;
 
-        </article>
+  margin: 0;
 
-      </div>
+  color: var(--text);
+}
 
-    </section>
+.travel-copy .travel-note {
+  max-width: 720px !important;
 
+  margin-top: 18px !important;
 
-    <!-- LEADERSHIP -->
+  font-size: 18px !important;
 
-    <section class="dark">
+  line-height: 1.5;
 
-      <div class="wrap feature">
+  color: var(--muted) !important;
 
-        <p class="label">
-          LEADERSHIP &amp; ACTIVITIES
-        </p>
+  font-weight: 500 !important;
+}
 
 
-        <h2>
-          Beyond the<br>
-          <span>classroom.</span>
-        </h2>
+/* SKILLS */
 
+.skill-cards {
+  display: grid;
 
-        <p class="activities">
-          Marketing Club · Women in Business ·
-          Real Estate Club · Sophomores Give Back
-        </p>
+  grid-template-columns: repeat(3, 1fr);
 
-      </div>
+  gap: 18px;
+}
 
-    </section>
+.skill-cards article {
+  background: #fff;
 
+  border-radius: 26px;
 
-    <!-- CONTACT -->
+  padding: 30px;
 
-    <section class="wrap contact" id="contact">
+  min-height: 260px;
+}
 
-      <p class="label">
-        CONTACT
-      </p>
+.skill-cards h3 {
+  font-size: 26px;
 
+  margin: 0 0 70px;
+}
 
-      <h2>
-        Let’s connect.
-      </h2>
+.skill-cards p {
+  font-size: 18px;
 
+  line-height: 1.5;
 
-      <p>
-        Interested in marketing, brand strategy,
-        or audience engagement? Reach out.
-      </p>
+  color: var(--muted);
+}
 
 
-      <div class="actions">
+/* CONTACT */
 
-        <a
-          class="primary"
-          href="mailto:Ashley.vallila@gmail.com"
-        >
-          Email Ashley
-        </a>
+.contact {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
 
+.contact > p:not(.label) {
+  font-size: 22px;
 
-        <a
-          class="secondary"
-          href="https://www.linkedin.com/in/ashley-vallila/"
-          target="_blank"
-          rel="noopener"
-        >
-          LinkedIn ↗
-        </a>
+  color: var(--muted);
 
+  max-width: 650px;
+}
 
-        <a
-          class="secondary"
-          href="Ashley-Vallila-Resume.pdf"
-          download
-        >
-          Download résumé ↓
-        </a>
 
-      </div>
+/* FOOTER */
 
-    </section>
+footer {
+  max-width: 1100px;
 
-  </main>
+  margin: auto;
 
+  padding: 28px 32px 45px;
 
-  <!-- FOOTER -->
+  border-top: 1px solid var(--line);
 
-  <footer>
+  display: flex;
 
-    <span>
-      © 2026 Ashley Vallila
-    </span>
+  justify-content: space-between;
 
-    <span>
-      Marketing · Fairfield University
-    </span>
+  font-size: 12px;
 
-    <a href="#top">
-      Back to top ↑
-    </a>
+  color: var(--muted);
+}
 
-  </footer>
+footer a {
+  text-decoration: none;
+}
 
 
-  <script src="script.js"></script>
+/* MOBILE */
 
-</body>
-</html>
+@media (max-width: 780px) {
+
+  .nav {
+    padding: 0 20px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .nav nav {
+    display: none;
+
+    position: absolute;
+
+    top: 48px;
+    left: 0;
+    right: 0;
+
+    background: rgba(245, 245, 247, 0.98);
+
+    padding: 18px 24px;
+
+    flex-direction: column;
+  }
+
+  .nav nav.open {
+    display: flex;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding: 70px 24px;
+  }
+
+  .portrait {
+    max-width: 480px;
+  }
+
+  .cards,
+  .skill-cards,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .feature,
+  .section,
+  .education,
+  .contact {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .card h3 {
+    margin-top: 35px;
+  }
+
+  footer {
+    margin: 0 24px;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .travel {
+    padding-bottom: 85px;
+  }
+
+  .travel-image {
+    padding: 14px;
+  }
+
+  .travel-image img {
+    height: 58vh;
+
+    border-radius: 24px;
+  }
+
+  .travel-copy {
+    padding-top: 42px;
+  }
+}
