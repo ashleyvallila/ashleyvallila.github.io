@@ -1,348 +1,638 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ashley Vallila — Marketing student at Fairfield University.">
-  <title>Ashley Vallila — Marketing</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="site-header" id="top">
-    <a class="brand" href="#top" aria-label="Ashley Vallila home">ASHLEY VALLILA</a>
-
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-      <span></span><span></span><span></span>
-      <span class="sr-only">Toggle navigation</span>
-    </button>
-
-    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">MARKETING • FAIRFIELD UNIVERSITY</p>
-
-        <h1 id="hero-title">
-          Ashley<br>
-          <em>Vallila</em>
-        </h1>
-
-        <p class="hero-intro">
-          Marketing student focused on multi-channel campaigns, brand messaging,
-          audience engagement, digital content, and financial services.
-        </p>
-
-        <div class="hero-links">
-          <a class="button button-dark" href="#experience">
-            View experience <span>↘</span>
-          </a>
-
-          <a class="text-link" href="mailto:Ashley.vallila@gmail.com">
-            Email me ↗
-          </a>
-        </div>
-      </div>
-
-      <div class="hero-photo-wrap">
-        <img
-          class="hero-photo"
-          src="profile.jpg"
-          alt="Ashley Vallila"
-          width="700"
-          height="850"
-        >
-
-        <p class="photo-caption">
-          Moorestown, NJ · Fairfield University
-        </p>
-      </div>
-    </section>
-
-
-    <section class="statement section-rule" id="about" aria-labelledby="about-title">
-      <p class="section-label">01 / ABOUT</p>
-
-      <div>
-        <h2 id="about-title">
-          Turning marketing strategy into
-          <em>audience-focused</em> work.
-        </h2>
-
-        <p>
-          I’m a Marketing student at Fairfield University with experience across
-          digital and print campaigns, brand messaging, content creation, and
-          audience engagement. My experience includes the Fairfield University
-          Theatre Program and Synchrony Financial’s Business Leadership Program,
-          where I worked with teams on customer engagement and financial services
-          strategy.
-        </p>
-      </div>
-    </section>
-
-
-    <section class="experience section-rule" id="experience" aria-labelledby="experience-title">
-
-      <div class="section-heading">
-        <p class="section-label">02 / EXPERIENCE</p>
-        <h2 id="experience-title">Selected experience</h2>
-      </div>
-
-
-      <article class="experience-item">
-
-        <div class="experience-meta">
-          <span>05.2026</span>
-          <span>Stamford, CT</span>
-        </div>
+:root {
+  --bg: #f5f5f7;
+  --text: #1d1d1f;
+  --muted: #6e6e73;
+  --blue: #0071e3;
+  --dark: #000;
+  --white: #fff;
+  --line: #d2d2d7;
+}
 
-        <div class="experience-main">
-          <h3>Synchrony Financial</h3>
+* {
+  box-sizing: border-box;
+}
 
-          <p class="role">
-            Business Leadership Program — Extern, Sales &amp; Marketing Track
-          </p>
+html {
+  scroll-behavior: smooth;
+}
 
-          <ul>
-            <li>
-              Gained exposure to the credit card and payments industry,
-              customer engagement strategies, and the overall business model.
-            </li>
-
-            <li>
-              Collaborated on team-based case studies evaluating customer
-              engagement opportunities and financial services strategy.
-            </li>
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
 
-            <li>
-              Led a team presentation of strategic recommendations to senior
-              leadership.
-            </li>
-          </ul>
-        </div>
+a {
+  color: inherit;
+}
 
-      </article>
 
+/* NAVIGATION */
 
-      <article class="experience-item">
+.nav {
+  height: 48px;
 
-        <div class="experience-meta">
-          <span>2025–26</span>
-          <span>Fairfield, CT</span>
-        </div>
+  position: sticky;
+  top: 0;
+  z-index: 50;
 
-        <div class="experience-main">
-          <h3>Fairfield University Theatre Program</h3>
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-          <p class="role">
-            Marketing Intern — Regina A. Quick Center for the Arts
-          </p>
+  padding: 0 max(22px, calc((100vw - 1100px) / 2));
 
-          <ul>
-            <li>
-              Increased Fall and Spring production attendance by more than 50%
-              per performance, contributing to sold-out shows.
-            </li>
+  background: rgba(245, 245, 247, 0.86);
 
-            <li>
-              Developed and executed multi-channel digital and print campaigns
-              to increase production awareness and drive student and community
-              engagement.
-            </li>
+  backdrop-filter:
+    saturate(180%)
+    blur(20px);
 
-            <li>
-              Created brand messaging and promotional themes to establish a
-              consistent identity across production marketing initiatives.
-            </li>
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-            <li>
-              Supported live productions and promotional events, coordinating
-              marketing activities to maximize audience engagement and
-              attendance.
-            </li>
-          </ul>
-        </div>
+.logo {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
 
-      </article>
+.nav nav {
+  display: flex;
+  gap: 30px;
+}
 
-    </section>
+.nav nav a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #333;
+}
 
+.menu {
+  display: none;
 
-    <section class="education section-rule" id="education" aria-labelledby="education-title">
+  border: 0;
+  background: none;
 
-      <div class="section-heading">
-        <p class="section-label">03 / EDUCATION</p>
-        <h2 id="education-title">Fairfield University</h2>
-      </div>
+  font-size: 18px;
+}
 
-      <div class="education-grid">
+.sr {
+  position: absolute;
 
-        <div>
-          <p class="large-copy">
-            B.S. in Marketing<br>
-            <span>Minor in Management</span>
-          </p>
+  width: 1px;
+  height: 1px;
 
-          <p>
-            Expected 2028 · Fairfield, CT
-          </p>
-        </div>
+  overflow: hidden;
 
-        <div class="education-details">
+  clip: rect(0, 0, 0, 0);
+}
 
-          <div>
-            <strong>3.84 / 4.0</strong>
-            <span>GPA</span>
-          </div>
 
-          <div>
-            <strong>4 semesters</strong>
-            <span>Dean’s List</span>
-          </div>
+/* HERO */
 
-          <div>
-            <strong>Spring 2027</strong>
-            <span>
-              Global Fairfield Study Abroad Center, Florence, Italy
-            </span>
-          </div>
+.hero {
+  max-width: 1180px;
+  margin: auto;
 
-        </div>
+  min-height: calc(100vh - 48px);
 
-      </div>
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
 
+  align-items: center;
 
-      <div class="coursework">
-        <span>Relevant coursework</span>
+  gap: 70px;
 
-        <p>
-          Business Analytics · Principles of Marketing ·
-          Financial &amp; Managerial Accounting
-        </p>
-      </div>
+  padding: 70px 40px;
+}
 
-    </section>
+.kicker,
+.label {
+  font-size: 12px;
+  font-weight: 700;
 
+  letter-spacing: 0.12em;
+}
 
-    <section class="skills section-rule" id="skills" aria-labelledby="skills-title">
+.hero h1,
+.section h2,
+.feature h2,
+.education h2,
+.contact h2 {
+  margin: 12px 0 24px;
 
-      <div class="section-heading">
-        <p class="section-label">04 / SKILLS</p>
-        <h2 id="skills-title">Tools &amp; strengths</h2>
-      </div>
+  font-size: clamp(58px, 8vw, 112px);
 
+  line-height: 0.92;
 
-      <div class="skill-grid">
+  letter-spacing: -0.065em;
+}
 
-        <div class="skill-group">
-          <h3>Marketing</h3>
+.hero h1 span,
+.feature h2 span {
+  color: #86868b;
+}
 
-          <p>
-            Campaign Development · Brand Messaging · Market Research ·
-            Content Creation · Audience Engagement · Social Media
-          </p>
-        </div>
+.lede {
+  max-width: 650px;
 
+  font-size: clamp(21px, 2.3vw, 30px);
 
-        <div class="skill-group">
-          <h3>Design &amp; Content</h3>
+  line-height: 1.25;
 
-          <p>
-            Adobe Creative Suite · Canva
-          </p>
-        </div>
+  color: var(--muted);
 
+  font-weight: 600;
+}
 
-        <div class="skill-group">
-          <h3>Business &amp; Technology</h3>
 
-          <p>
-            Microsoft Office · Excel · PowerPoint · Google Workspace · Slack
-          </p>
-        </div>
+/* BUTTONS */
 
-      </div>
+.actions {
+  display: flex;
+  flex-wrap: wrap;
 
-    </section>
+  gap: 12px;
 
+  align-items: center;
 
-    <section class="leadership section-rule" aria-labelledby="leadership-title">
+  margin-top: 30px;
+}
 
-      <div class="section-heading">
-        <p class="section-label">05 / LEADERSHIP &amp; ACTIVITIES</p>
-        <h2 id="leadership-title">Outside the classroom</h2>
-      </div>
+.primary,
+.secondary {
+  display: inline-block;
 
-      <p class="activity-list">
-        Marketing Club · Women in Business · Real Estate Club ·
-        Sophomores Give Back
-      </p>
+  border-radius: 999px;
 
-    </section>
+  padding: 12px 20px;
 
+  text-decoration: none;
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
+  font-size: 15px;
+}
 
-      <div>
-        <p class="section-label">06 / CONTACT</p>
+.primary {
+  background: var(--blue);
 
-        <h2 id="contact-title">
-          Let’s connect.
-        </h2>
-      </div>
+  color: #fff;
+}
 
+.secondary {
+  color: var(--blue);
 
-      <div class="contact-links">
+  border: 1px solid var(--blue);
+}
 
-        <a
-          class="contact-link"
-          href="mailto:Ashley.vallila@gmail.com"
-        >
-          <span>Email</span>
-          <strong>Ashley.vallila@gmail.com ↗</strong>
-        </a>
 
+/* PROFILE PHOTO */
 
-        <a
-          class="contact-link"
-          href="https://www.linkedin.com/in/ashley-vallila/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>LinkedIn</span>
-          <strong>View profile ↗</strong>
-        </a>
+.portrait img {
+  width: 100%;
 
-      </div>
+  display: block;
 
-    </section>
+  border-radius: 34px;
 
-  </main>
+  aspect-ratio: 4 / 5;
 
+  object-fit: cover;
 
-  <footer>
+  background: #ddd;
+}
 
-    <span>ASHLEY VALLILA</span>
+.portrait p {
+  font-size: 12px;
 
-    <span>
-      Marketing · Fairfield University
-    </span>
+  color: var(--muted);
 
-    <a href="#top">
-      Back to top ↑
-    </a>
+  text-align: center;
+}
 
-  </footer>
 
+/* GENERAL CONTENT */
 
-  <script src="script.js"></script>
-</body>
-</html>
+.wrap {
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+
+/* DARK FEATURE SECTIONS */
+
+.dark {
+  background: #000;
+
+  color: #f5f5f7;
+}
+
+.feature {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
+
+.feature .label {
+  color: #86868b;
+}
+
+.feature h2 {
+  font-size: clamp(52px, 7vw, 92px);
+}
+
+.big-copy,
+.activities {
+  max-width: 900px;
+
+  font-size: clamp(25px, 3.5vw, 42px);
+
+  line-height: 1.14;
+
+  font-weight: 600;
+
+  color: #a1a1a6;
+}
+
+
+/* SECTIONS */
+
+.section {
+  padding-top: 130px;
+  padding-bottom: 130px;
+}
+
+.section h2,
+.education h2,
+.contact h2 {
+  font-size: clamp(48px, 6vw, 78px);
+}
+
+
+/* EXPERIENCE CARDS */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+
+  border-radius: 30px;
+
+  padding: 38px;
+
+  box-shadow:
+    0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.card.accent {
+  background: #e8f2ff;
+}
+
+.card-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+.card h3 {
+  font-size: 34px;
+
+  letter-spacing: -0.04em;
+
+  margin: 50px 0 8px;
+}
+
+.role {
+  font-weight: 600;
+
+  color: var(--muted);
+}
+
+.card ul {
+  padding-left: 20px;
+
+  line-height: 1.55;
+}
+
+.card li {
+  margin: 12px 0;
+}
+
+
+/* EDUCATION */
+
+.education {
+  background: #fff;
+
+  padding: 130px 0;
+}
+
+.degree {
+  font-size: 28px;
+
+  font-weight: 600;
+}
+
+.degree span {
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 14px;
+
+  margin: 60px 0 35px;
+}
+
+.stats div {
+  background: var(--bg);
+
+  border-radius: 24px;
+
+  padding: 30px 22px;
+}
+
+.stats strong {
+  display: block;
+
+  font-size: 46px;
+
+  letter-spacing: -0.05em;
+}
+
+.stats span {
+  display: block;
+
+  color: var(--muted);
+
+  margin-top: 8px;
+}
+
+.course {
+  font-size: 18px;
+
+  color: var(--muted);
+}
+
+
+/* STUDY ABROAD */
+
+.travel {
+  background: #fff;
+
+  padding: 0 0 120px;
+}
+
+.travel-image {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 24px;
+}
+
+.travel-image img {
+  display: block;
+
+  width: 100%;
+
+  height: min(72vh, 760px);
+
+  object-fit: cover;
+
+  border-radius: 34px;
+}
+
+.travel-copy {
+  padding-top: 62px;
+}
+
+.travel-copy h2 {
+  margin: 12px 0 18px;
+
+  font-size: clamp(52px, 7vw, 92px);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.06em;
+}
+
+.travel-copy > p:not(.label) {
+  font-size: clamp(22px, 2.6vw, 34px);
+
+  font-weight: 600;
+
+  margin: 0;
+
+  color: var(--text);
+}
+
+.travel-copy .travel-note {
+  max-width: 720px !important;
+
+  margin-top: 18px !important;
+
+  font-size: 18px !important;
+
+  line-height: 1.5;
+
+  color: var(--muted) !important;
+
+  font-weight: 500 !important;
+}
+
+
+/* SKILLS */
+
+.skill-cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.skill-cards article {
+  background: #fff;
+
+  border-radius: 26px;
+
+  padding: 30px;
+
+  min-height: 260px;
+}
+
+.skill-cards h3 {
+  font-size: 26px;
+
+  margin: 0 0 70px;
+}
+
+.skill-cards p {
+  font-size: 18px;
+
+  line-height: 1.5;
+
+  color: var(--muted);
+}
+
+
+/* CONTACT */
+
+.contact {
+  padding-top: 130px;
+  padding-bottom: 140px;
+}
+
+.contact > p:not(.label) {
+  font-size: 22px;
+
+  color: var(--muted);
+
+  max-width: 650px;
+}
+
+
+/* FOOTER */
+
+footer {
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 28px 32px 45px;
+
+  border-top: 1px solid var(--line);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 12px;
+
+  color: var(--muted);
+}
+
+footer a {
+  text-decoration: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 780px) {
+
+  .nav {
+    padding: 0 20px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .nav nav {
+    display: none;
+
+    position: absolute;
+
+    top: 48px;
+    left: 0;
+    right: 0;
+
+    background: rgba(245, 245, 247, 0.98);
+
+    padding: 18px 24px;
+
+    flex-direction: column;
+  }
+
+  .nav nav.open {
+    display: flex;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+
+    padding: 70px 24px;
+  }
+
+  .portrait {
+    max-width: 480px;
+  }
+
+  .cards,
+  .skill-cards,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .wrap {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .feature,
+  .section,
+  .education,
+  .contact {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .card h3 {
+    margin-top: 35px;
+  }
+
+  footer {
+    margin: 0 24px;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .travel {
+    padding-bottom: 85px;
+  }
+
+  .travel-image {
+    padding: 14px;
+  }
+
+  .travel-image img {
+    height: 58vh;
+
+    border-radius: 24px;
+  }
+
+  .travel-copy {
+    padding-top: 42px;
+  }
+}
